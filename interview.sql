@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2020 at 03:13 AM
+-- Generation Time: Oct 28, 2020 at 06:30 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -20,6 +20,38 @@ SET time_zone = "+00:00";
 --
 -- Database: `interview`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `history_product`
+--
+
+CREATE TABLE `history_product` (
+  `id` int(11) NOT NULL,
+  `product_name` varchar(250) NOT NULL,
+  `date_created` datetime NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `qty` bigint(20) NOT NULL,
+  `price` float NOT NULL,
+  `uom` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `history_product`
+--
+
+INSERT INTO `history_product` (`id`, `product_name`, `date_created`, `created_by`, `product_id`, `qty`, `price`, `uom`) VALUES
+(26, 'Product1', '2020-10-28 12:09:37', 1, 0, 2, 100, 'kg'),
+(27, 'Product1', '2020-10-28 12:09:37', 1, 0, 2, 100, 'kg'),
+(28, 'Product1', '2020-10-28 12:10:59', 1, 0, 1, 100, 'kg'),
+(29, 'Product1', '2020-10-28 12:10:59', 1, 0, 1, 100, 'kg'),
+(30, 'Product1', '2020-10-28 12:20:34', 1, 0, 1, 100, 'kg'),
+(31, 'Product1', '2020-10-28 12:21:19', 1, 0, 10, 100, 'kg'),
+(32, 'Product2', '2020-10-28 12:21:19', 1, 0, 10, 500, 'pcs'),
+(33, 'Product1', '2020-10-28 12:21:24', 1, 0, 10, 100, 'kg'),
+(34, 'Product2', '2020-10-28 12:21:35', 1, 0, 20, 500, 'pcs');
 
 -- --------------------------------------------------------
 
@@ -45,8 +77,7 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`id`, `name`, `uom`, `qty`, `price`, `date_created`, `date_updated`, `created_by`, `updated_by`) VALUES
 (1, 'Product1', 'kg', 10, 100, '2020-10-28 00:01:12', '2020-10-28 00:01:12', 1, 1),
-(2, 'Product2', 'pcs', 100, 500, '2020-10-27 05:10:03', '2020-10-27 05:10:03', 1, 1),
-(3, 'Product3', 'm', 10, 100, '2020-10-28 00:41:44', '0000-00-00 00:00:00', 1, 0);
+(2, 'Product2', 'pcs', 20, 500, '2020-10-27 05:10:03', '2020-10-27 05:10:03', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -74,6 +105,12 @@ INSERT INTO `user` (`id`, `user_name`, `pin`, `date_created`, `date_updated`) VA
 --
 
 --
+-- Indexes for table `history_product`
+--
+ALTER TABLE `history_product`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -88,6 +125,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `history_product`
+--
+ALTER TABLE `history_product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `product`
